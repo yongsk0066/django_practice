@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 import re
 from django.forms import ValidationError
@@ -13,7 +14,7 @@ class Post(models.Model):
         ('p', 'Published'),
         ('w', 'Withdrawn'),
     )
-
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,)
     title = models.CharField(max_length=100, verbose_name='제목', help_text='포스팅 제목을 입력해 주세요. 최대 100자 내외.')
     content = models.TextField(verbose_name='내용')
     tags = models.CharField(max_length=100, blank=True)
