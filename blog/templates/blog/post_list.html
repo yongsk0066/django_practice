@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h1>First Django</h1>
-    <p>안녕하세요</p>
+{%  extends "blog/layout.html" %}
 
+{% block content %}
     <form action="" method="get">
         <input type="text" name="q" value="{{ q }}"/>
         <input type="submit" value="검색" />
@@ -23,9 +16,4 @@
     </li>
 {% endfor %}
 </ul>
-
-
-
-
-</body>
-</html>
+{% endblock %}
