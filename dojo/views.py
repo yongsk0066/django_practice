@@ -6,18 +6,19 @@ from dojo.forms import PostForm
 from dojo.models import Post
 
 
-def post_news(request):
+def post_new(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
-            post = Post(title=form.cleaned_data['title'],
-                        content = form.cleaned_data['content'])
+            post = form.save(commit=False)
+            post.ip = request.META['REMOTE_ADDR']
             post.save()
-            return redirect('/dojo/')
+            return redirect('/dojo/')  # namespace:name
     else:
         form = PostForm()
-    return render(request, 'dojo/post_form.html', {'form':form,})
-
+    return render(request, 'dojo/post_form.html', {
+        'form': form,
+    })
 
 
 def mysum(request, numbers):

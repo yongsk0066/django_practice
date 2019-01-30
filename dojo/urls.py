@@ -6,7 +6,7 @@ from . import views
 app_name = 'dojo'
 
 urlpatterns = [
-    path('new/', views.post_news),
+    path('new/', views.post_new),
 
     re_path(r'^sum/(?P<numbers>[\d/]+)/$', views.mysum),
     re_path(r'^hello/(?P<name>[ㄱ-힣]+)/(?P<age>\d+)/$', views.hello),
