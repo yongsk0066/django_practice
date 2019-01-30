@@ -1,6 +1,23 @@
 # dojo/views.py
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+
+from dojo.forms import PostForm
+from dojo.models import Post
+
+
+def post_news(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = Post(title=form.cleaned_data['title'],
+                        content = form.cleaned_data['content'])
+            post.save()
+            return redirect('/dojo/')
+    else:
+        form = PostForm()
+    return render(request, 'dojo/post_form.html', {'form':form,})
+
 
 
 def mysum(request, numbers):
