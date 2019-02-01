@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'accounts',
     'shop',
+    'imagekit',
     ]
 
 MIDDLEWARE = [
