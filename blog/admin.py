@@ -27,3 +27,4 @@ class Commentadmin(admin.ModelAdmin):
 @admin.register(Tag)
 class Tagadmin(admin.ModelAdmin):
     list_display = ['name']
+

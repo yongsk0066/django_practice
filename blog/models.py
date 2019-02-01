@@ -9,7 +9,7 @@ from imagekit.processors import Thumbnail
 
 
 def lnglat_validator(value):
-    if not re.match(r'^([+-]\d+\.?\d*),([+-]\d+\.?\d*)$', value):
+    if not re.match(r'^([+-]?\d+\.?\d*),([+-]?\d+\.?\d*)$', value):
         raise ValidationError('Invalid LngLat Type')
 
 
