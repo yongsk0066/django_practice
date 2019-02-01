@@ -2,6 +2,8 @@ from django.http import Http404
 from django.shortcuts import get_object_or_404, render, redirect
 from .models import Post
 from .forms import PostForm
+from django.contrib import messages
+
 
 def post_list(request):
     qs = Post.objects.all()
@@ -28,6 +30,7 @@ def post_edit(request, id):
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save()
+            messages.success(request, '포스팅을 수정했습니다.')
             return redirect(post)
     else:
         form = PostForm(instance=post)
@@ -40,6 +43,7 @@ def post_new(request):
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save()
+            messages.success(request, "새 포스팅을 저장했습니다.")
             return redirect(post)
     else:
         form = PostForm()
