@@ -8,7 +8,7 @@ app_name = 'blog'
 
 urlpatterns = [
     url(r'^$', views_cbv.post_list, name='post_list'),
-    re_path(r'^(?P<id>\d+)/$', views.post_detail, name='post_detail'),
+    re_path(r'^(?P<id>\d+)/$', views_cbv.post_detail, name='post_detail'),
     re_path(r'^cbv/new/$', views_cbv.post_new),
 
     path('new/', views.post_new, name='post_new'),
