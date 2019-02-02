@@ -6,6 +6,7 @@ from . import views
 app_name = 'dojo'
 
 urlpatterns = [
+    re_path(r'^(?P<id>\d+)/$', views.post_detail),
     path('new/', views.post_new),
     re_path(r'^(?P<id>\d+)/edit/$', views.post_edit),
 
