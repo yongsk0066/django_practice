@@ -29,6 +29,7 @@ urlpatterns = [
     path('blog/', include(('blog.urls'), namespace='blog')),
     path('dojo/', include(('dojo.urls'), namespace='dojo')),
     path('accounts/', include('accounts.urls')),
+    path('accounts/', include('allauth.urls')),
     path('shop/', include(('shop.urls'), namespace='shop')),
 ]
 

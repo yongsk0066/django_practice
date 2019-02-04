@@ -45,6 +45,13 @@ INSTALLED_APPS = [
     'accounts',
     'shop',
     'imagekit',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.kakao',
+    'allauth.socialaccount.providers.naver'
     ]
 
 MIDDLEWARE = [
@@ -146,3 +153,11 @@ MESSAGE_LEVEL = constants.DEBUG
 MESSAGE_TAGS = {constants.ERROR: 'danger'}
 
 NAVER_CLIENT_ID = 'ndc80dyhr9'
+
+AUTHENTICATION_BACKENDS= [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+SITE_ID = 1
+SOCIALACCOUNT_EMAIL_VERIFICATION = 'none'
